@@ -77,6 +77,35 @@ WHERE Color <> 'red';
 * OPERADOR LOGICO E **AND**
 * OPERADOR LOGICO OU  **OR**
 
+### DESAFIOS
+* DESAFIO 01 = A equipe de produção de produtos precisa do nome de todas as peças que pesam mais que 500kg mas não mais que 700kg para inspeção.
+* DESAFIO 02 = Foi pedido pelo marketing uma relação de todos os empregados(employess) que são casados (single=solteiro, married = casado) e são asalariados(salaried).
+* DESAFIO 03 = Um usuario chamado peter krebs está devendo um pagamento, consiga o email dele para que possamos enviar uma cobrança! Você vai ter que usar a tabela person.person e depois a tabela person.emailaddress
+
+**Soluções dos Desafios**
+``` sql
+/*Desafio 01*/
+SELECT Name
+FROM Production.Product
+WHERE Weight > 500 AND Weight <= 700;
+```
+``` sql
+/*Desafio 02*/
+SELECT *
+FROM HumanResources.Employee
+WHERE MaritalStatus = 'm' AND SalariedFlag = 1
+```
+``` sql
+/*Desafio 03*/
+SELECT *
+FROM Person.Person
+WHERE FirstName = 'Peter' AND LastName = 'Krebs'
+
+SELECT * 
+FROM Person.EmailAddress
+WHERE BusinessEntityID = 26;
+```
+
 ## COUNT
 * RETORNA O NUMERO DE LINHAS SOLICITADOS PELA CONDIÇÃO 
 
