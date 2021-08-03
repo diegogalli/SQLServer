@@ -202,4 +202,57 @@ FROM Person.Person /* nomeTabela */
 WHERE BusinessEntityID IN (2,7,13);
 /* nomeColuna VALORES(2,7,13) */
 ```
+## LIKE
 
+* Em consultas SQL as expressões com strings mais usadas são as checagens para verificação de coincidências de pares, usando o operador LIKE combinado com os caracteres especiais porcentagem (%) e sublinhado (_). O caractere % é utilizado para indicar a posição (no início, em qualquer posição ou no final) que um conteúdo será procurado no valor string do campo especificado enquanto que o caractere _ indica o número de caracteres envolvidos na pesquisa.
+
+``` sql
+SELECT *
+FROM Person.Person /*nomeTabela */
+WHERE FirstName like 'ovi%'
+/* nomeColuna LIKE 'palavraProcurada%'
+```
+## Desafios BETWEEN , IN e LIKE
+
+* DESAFIO 01 = Quantos produtos temos cadastrados no sistem que custam mais que 1500 dolares?
+* DESAFIO 02 = Quantas pessoas temos com o sobrenome que inicia com a letra P?
+* DESAFIO 03 = Em quantas cidades únicas estão cadastrados nossos clientes?
+* DESAFIO 04 = Quais são as cidades únicas que temos cadastradas em nosso sistema?
+* DESAFIO 05 = Quantos produtos vermelhos tem o preço entre 500 a 1000 dolares?
+* DESAFIO 06 = Quantos produtos cadastrados tem a palavra 'road' no nome deles? 
+
+**Soluções Desafios**
+``` sql
+/*Desafio 01*/
+SELECT COUNT(ListPrice)
+FROM Production.Product
+WHERE ListPrice > 1500
+```
+``` sql
+/*Desafio 02*/
+SELECT COUNT(LastName)
+FROM Person.Person
+WHERE LastName like 'P%'
+```
+``` sql
+/*Desafio 03*/
+SELECT COUNT(DISTINCT City)
+FROM Person.Address;
+```
+``` sql
+/*Desafio 04*/
+SELECT DISTINCT City
+FROM Person.Address
+```
+``` sql
+/*Desafio 05*/
+SELECT COUNT(Color)
+FROM Production.Product
+WHERE Color = 'Red' AND ListPrice between 500 and 1000;
+```
+``` sql
+/*Desafio 06*/
+SELECT COUNT(Name)
+FROM Production.Product
+WHERE Name like '%road%';
+```
