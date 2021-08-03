@@ -1,4 +1,4 @@
-/**Criar novo banco de dados**/
+/*Criar novo banco de dados*/
 CREATE DATABASE nome_do_banco_de_dados;
 
 /*Deletar um banco de dados*/
