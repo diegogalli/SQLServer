@@ -113,3 +113,24 @@ WHERE BusinessEntityID = 26;
 SELECT COUNT(*)
 FROM nomeTabela;
 ```
+
+### Desafios COUNT
+
+* DESAFIO 01 = Quero saber quantos produtos temos cadastrados 
+em nossa tabela de produtos
+* DESAFIO 02 = Quero saber quantos tamanhos de produtos temos
+cadastrados em nossa tabela
+
+**Soluções dos Desafios**
+
+``` sql
+/*DESAFIO 01*/
+SELECT COUNT(ProductId)
+FROM Production.Product;
+```
+``` sql
+/*DESAFIO 02*/
+SELECT COUNT(Size) 
+FROM Production.Product;
+```
+
