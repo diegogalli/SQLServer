@@ -138,6 +138,35 @@ FROM Production.Product;
 * A cláusula TOP da linguagem SQL é utilizada para limitar o número de registros retornados por uma consulta e é pode, por exemplo, garantir certo ganho de desempenho em algumas consultas que normalmente seriam compostas por uma quantidade muito grande de registros.
 
 ``` sql
-ELECT TOP 10 *
+SELECT TOP 10 *
 FROM nomeTabela;
+```
+## ORDER BY
+* ORDER BY organiza os resultados de acordo com uma ou mais colunas da tabela, podendo definir a ordem do resultados como crescente ou decrescente.
+
+``` sql
+SELECT nomeColuna, nomeColuna1
+FROM nomeTabela
+ORDER BY nomeColuna ASC / DESC /* ASC = CRESCENTE | DESC = DECRESCENTE */
+```
+### Desafios ORDER BY
+
+* DESAFIO 01 = Obter o productid dos 10 produtos mais caros 
+cadastrados no sistema, listando mais caro para o mais barato
+* DESAFIO 02 = Obter o nome e numero do produto dos produtos
+que tem o productid entre 1~4
+
+**Soluções dos Desafios""
+
+``` sql
+/*Desafio 01*/
+SELECT TOP 10 ProductID
+FROM Production.Product
+ORDER BY ListPrice desc;
+```
+``` sql
+/*Desafio 02 */
+SELECT TOP 4 Name,ProductNumber
+FROM Production.Product
+ORDER BY ProductID asc;
 ```
