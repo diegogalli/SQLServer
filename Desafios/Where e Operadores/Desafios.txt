@@ -1,0 +1,5 @@
+DESAFIO 01 = A equipe de produção de produtos precisa do nome de todas as peças que pesam mais que 500kg mas não mais que 700kg para inspeção
+
+DESAFIO 02 = Foi pedido pelo marketing uma relação de todos os empregados(employess) que são casados (single=solteiro, married = casado) e são asalariados(salaried)
+
+DESAFIO 03 = Um usuario chamado Peter Krebs está devendo um pagamento,consiga o email dele para que possamos enviar uma cobrança!você vai ter que usar a tabela person.person e depois a tabela person.emailaddress
