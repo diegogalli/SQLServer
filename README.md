@@ -156,7 +156,7 @@ cadastrados no sistema, listando mais caro para o mais barato
 * DESAFIO 02 = Obter o nome e numero do produto dos produtos
 que tem o productid entre 1~4
 
-**Soluções dos Desafios""
+**Soluções dos Desafios**
 
 ``` sql
 /*Desafio 01*/
@@ -170,3 +170,26 @@ SELECT TOP 4 Name,ProductNumber
 FROM Production.Product
 ORDER BY ProductID asc;
 ```
+## BETWEEN
+
+* BETWEEN: Usado para encontrar um valor entre o valor mínimo e valor máximo
+
+``` sql
+select *
+from Production.Product /* nomeTabela */
+where ListPrice between 1000 and 1500;
+/*nomeColuna ENTRE mínimo E máximo */
+```
+``` sql
+select *
+from Production.Product
+where ListPrice NOT between 1000 and 1500;
+/*nomeColuna NÃO ESTEJA ENTRE mínimo E máximo */
+```
+``` sql
+/* BETWEEN COM DATA | DATA SEGUE O MODELO ANO/MES/DIA YYYY/MM/DD */
+SELECT *
+FROM HumanResources.Employee
+WHERE HireDate Between '2009/01/01' and '2010/01/01';
+```
+
