@@ -192,4 +192,14 @@ SELECT *
 FROM HumanResources.Employee
 WHERE HireDate Between '2009/01/01' and '2010/01/01';
 ```
+## IN
+
+* Usamos o operador in junto com o where, para verificar se um valor corresponde com qualquer valor passado na lista de valores.
+
+``` sql
+SELECT *
+FROM Person.Person /* nomeTabela */
+WHERE BusinessEntityID IN (2,7,13);
+/* nomeColuna VALORES(2,7,13) */
+```
 
