@@ -1,5 +1,0 @@
-DESAFIO 01 = Quero saber quantos produtos temos cadastrados 
-em nossa tabela de produtos
-
-DESAFIO 02 = Quero saber quantos tamanhos de produtos temos
-cadastrados em nossa tabela
