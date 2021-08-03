@@ -133,4 +133,11 @@ FROM Production.Product;
 SELECT COUNT(Size) 
 FROM Production.Product;
 ```
+## TOP
 
+* A cláusula TOP da linguagem SQL é utilizada para limitar o número de registros retornados por uma consulta e é pode, por exemplo, garantir certo ganho de desempenho em algumas consultas que normalmente seriam compostas por uma quantidade muito grande de registros.
+
+``` sql
+ELECT TOP 10 *
+FROM nomeTabela;
+```
