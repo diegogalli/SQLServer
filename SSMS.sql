@@ -359,4 +359,26 @@ HAVING COUNT(Firstname) > 10
 
 /* ATENÇÃO! A grande diferença entre HAVING e WHERE, o GROUP BY é aplicado depois que os dados já foram agrupados, enquanto o WHERE é aplicado antes dos dados serem agrupados. */
 
+/* Desafio 01 = Estamos querendo identificar as provincias(stateProvinceId) com o maior numero de
+cadastros no nosso sistema, então é preciso encontrar quais provincias (stateProvinceId) estão 
+registradas no banco de dados mais que 1000 vezes */
+
+/*------------------------------------- DESAFIOS -------------------------------------*/
+
+SELECT StateProvinceID, COUNT(StateProvinceID) as Quantidade
+FROM Person.Address
+GROUP BY StateProvinceID
+HAVING COUNT(StateProvinceId) > 1000
+
+/* Desafio 02 = Os gerentes de uma multinacional, querem saber quais produtos (productId) não
+estão trazendo, em média, no mínimo 1 milhão em total de vendas (lineTotal) */
+
+SELECT ProductId, AVG(LineTotal) as "MEDIA"
+From Sales.SalesOrderDetail
+GROUP BY ProductID
+HAVING AVG(LineTotal) < 1000000
+
+
+
+
 
