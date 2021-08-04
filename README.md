@@ -1,5 +1,5 @@
 # SQLServer
-Curso SQL SERVER Youtube
+Curso SQL Completo 2019 [Iniciantes] + Desafios + Muita Prática
 
 # Comandos
 ### Criar novo banco de dados:
