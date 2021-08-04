@@ -286,5 +286,4 @@ FROM Sales.SalesOrderDetail;
 SELECT TOP 10 avg(Linetotal) --Seleciona o valor AVG(Médio) dos 10 primeiros da coluna Linetotal
 FROM Sales.SalesOrderDetail
 /*nomeTabela*/
-=======
->>>>>>> e22713277067193d449d8ccb3e2492896755023f
+
