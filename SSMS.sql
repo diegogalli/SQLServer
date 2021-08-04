@@ -326,4 +326,37 @@ AVG(OrderQty) as "MediaProd"
 FROM Production.WorkOrder
 GROUP BY ProductID
 
+/* HAVING = Usado em junção com o GROUP BY para filtrar resultados de um agrupamento */
+
+SELECT coluna, funcaoAgregacao(coluna1)
+FROM nomeTabela
+GROUP BY coluna1
+HAVING condicao ;
+
+/* EXEMPLO */
+
+SELECT FirstName, COUNT(Firstname) as "quantidade" /* nomeColuna, funcaoAgregacao, apelido */
+FROM Person.Person /* nomeTabela */
+GROUP BY FirstName /* agrupar por nomeColuna */
+HAVING COUNT(Firstname) > 10 /* filtrar quando o nomeColuna for maior que 10 > */
+
+/* EXEMPLO 2 */
+/* Quais produtos que no total de vendas, estão entre 162mil a 500mil */
+
+SELECT PRODUCTID, sum(linetotal) as "Total"
+FROM Sales.SAlesOrderDetail
+GROUP BY ProductId
+HAVING SUM(linetotal) between 162000 and 500000
+
+/* EXEMPLO 3 | WHERE + HAVING */
+/* Quantos nomes no sistema tem ocorrencia maior que 10 vezes, porem somente onde o titulo seja por "Mr." */
+
+SELECT FirstName, COUNT(Firstname) as "quantidade"
+FROM Person.Person
+WHERE Title = 'Mr.'
+GROUP BY FirstName
+HAVING COUNT(Firstname) > 10
+
+/* ATENÇÃO! A grande diferença entre HAVING e WHERE, o GROUP BY é aplicado depois que os dados já foram agrupados, enquanto o WHERE é aplicado antes dos dados serem agrupados. */
+
 
