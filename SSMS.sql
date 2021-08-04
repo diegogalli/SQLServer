@@ -259,7 +259,6 @@ FROM Production.Product
 WHERE Name like '%road%';
 
 /*------------------------------------- DESAFIOS -------------------------------------*/
-<<<<<<< HEAD
 
 /* Principais funções de agregação MIN, MAX, SUM e AVG 
 Funções de agregação basicamente agregam ou combinam dados de uma tabela em 1 só resultado.
@@ -286,4 +285,45 @@ FROM Sales.SalesOrderDetail;
 SELECT TOP 10 avg(Linetotal) --Seleciona o valor AVG(Médio) dos 10 primeiros da coluna Linetotal
 FROM Sales.SalesOrderDetail
 /*nomeTabela*/
+
+/* GROUP BY = Basicamente divide o resultado da sua pesquisa em grupos */
+
+SELECT nomeColuna, funcaoAgregacao(nomeColuna1)
+FROM nomeTabela
+GROUP BY nomeColuna;
+
+SELECT SpecialOfferId, SUM(UnitPrice) AS "SOMA" /*nomeColuna, funcaoAgregacao , apelido */
+FROM Sales.SalesOrderDetail		/*nomeTabela*/
+GROUP BY SpecialOfferID			/* agrupar por nomeColuna */
+
+/*------------------------------------- DESAFIOS -------------------------------------*/
+/* Desafio 01 = Quantas pessoas tem o mesmo Middlename agrupadas por Middlename */
+
+SELECT MiddleName, COUNT(FirstName) as "Quantidade"
+FROM Person.Person
+Group by MiddleName
+
+/* Desafio 02 = Preciso saber em média qual é a quantidade(quantity) que cada produto é 
+vendido na loja */
+
+SELECT ProductID, avg(OrderQty) as "Média"
+FROM Sales.SalesOrderDetail
+GROUP BY ProductID 
+
+/* Desafio 03 = Quais foram as 10 vendas que no total tiveram os maiores valores de venda
+(linetotal) por produto, do maior valor para o menor. */
+
+SELECT TOP 10 ProductID, SUM(LineTotal) as "SOMA"
+FROM Sales.SalesOrderDetail
+GROUP BY ProductID
+ORDER BY SUM(linetotal) DESC;
+
+/* Desafio 04 = Quantos produtos e qual a quantidade media de produtos, temos cadastrados 
+nas nossas ordem de serviço (WorkOrder), agrupados por productId */
+
+SELECT PRODUCTID, COUNT(PRODUCTID) as "Contagem", 
+AVG(OrderQty) as "MediaProd"
+FROM Production.WorkOrder
+GROUP BY ProductID
+
 
