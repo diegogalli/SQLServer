@@ -378,6 +378,33 @@ From Sales.SalesOrderDetail
 GROUP BY ProductID
 HAVING AVG(LineTotal) < 1000000
 
+/*------------------------------------- DESAFIOS -------------------------------------*/
+
+/* AS = Apelido */
+
+SELECT TOP 10 ListPrice as "Lista de Preços" /*TOP 10 nomeColuna apelido "Lista de Preços" */
+FROM Production.Product /*nomeTabela*/
+
+/*------------------------------------- DESAFIOS -------------------------------------*/
+
+/* Desafio 01 = Encontrar o FirstName e LastName da tabela Person.Person e alterar a descrição */
+
+SELECT FirstName as "Nome" , LastName as "Sobrenome"
+FROM Person.Person
+
+/* Desafio 02 = Renomear o ProductNumber da tabela production.product para "Numero do Produto" */
+
+SELECT ProductNumber as "Numero do Produto"
+FROM Production.Product
+
+/* Renomear na tabela Sales.SalesOrderDetail a coluna unitPrice para "Preço Unitario" */
+
+SELECT UnitPrice as "Preço Unitario"
+FROM Sales.SalesOrderDetail
+
+/*------------------------------------- DESAFIOS -------------------------------------*/
+
+
 
 
 
