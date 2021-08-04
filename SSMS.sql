@@ -259,3 +259,29 @@ FROM Production.Product
 WHERE Name like '%road%';
 
 /*------------------------------------- DESAFIOS -------------------------------------*/
+
+/* Principais funções de agregação MIN, MAX, SUM e AVG 
+Funções de agregação basicamente agregam ou combinam dados de uma tabela em 1 só resultado.
+SUM = Soma */
+
+SELECT TOP 10 SUM(Linetotal) as "SOMA" --Seleciona os 10 primeiros resultados e SUM(SOMA) de todos na coluna
+FROM Sales.SalesOrderDetail	;		   -- Linetotal e acrescenta um apelido AS com descrição "SOMA"
+/*nomeTabela*/
+
+/*MIN = Minimo */
+
+SELECT TOP 10 MIN(Linetotal) --Seleciona o valor MIN(Mínimo) dos 10 primeiros da coluna Linetotal
+FROM Sales.SalesOrderDetail;
+/*nomeTabela*/
+
+/*MAX = Máximo */
+
+SELECT TOP 10 MAX(Linetotal) --Seleciona o valor MAX(Máximo) dos 10 primeiros da coluna Linetotal
+FROM Sales.SalesOrderDetail;
+/*nomeTabela*/
+
+/*AVG = Média*/
+
+SELECT TOP 10 avg(Linetotal) --Seleciona o valor AVG(Médio) dos 10 primeiros da coluna Linetotal
+FROM Sales.SalesOrderDetail
+/*nomeTabela*/
