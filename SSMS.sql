@@ -1,4 +1,4 @@
-/**Criar novo banco de dados**/
+/*Criar novo banco de dados*/
 CREATE DATABASE nome_do_banco_de_dados;
 
 /*Deletar um banco de dados*/
@@ -259,6 +259,7 @@ FROM Production.Product
 WHERE Name like '%road%';
 
 /*------------------------------------- DESAFIOS -------------------------------------*/
+<<<<<<< HEAD
 
 /* Principais funções de agregação MIN, MAX, SUM e AVG 
 Funções de agregação basicamente agregam ou combinam dados de uma tabela em 1 só resultado.
@@ -285,3 +286,5 @@ FROM Sales.SalesOrderDetail;
 SELECT TOP 10 avg(Linetotal) --Seleciona o valor AVG(Médio) dos 10 primeiros da coluna Linetotal
 FROM Sales.SalesOrderDetail
 /*nomeTabela*/
+=======
+>>>>>>> e22713277067193d449d8ccb3e2492896755023f
