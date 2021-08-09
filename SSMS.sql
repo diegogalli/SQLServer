@@ -531,3 +531,20 @@ SELECT AVG(TotalDue) as Media, DATEPART(month,OrderDate) as Mes
 FROM Sales.SalesOrderHeader
 GROUP BY DATEPART(month, orderdate)
 ORDER BY Mes
+
+/* OPERAÇÕES EM String */
+
+SELECT CONCAT(FirstName, ' ', LastName) /*CONCAT = Concatena colunas */
+FROM Person.Person
+
+SELECT UPPER (FirstName), LOWER(Firstname) /*UPPER = todas as letras maiusculas | LOWER = Todas as letras minusculas */
+FROM Person.Person
+
+SELECT firstname,LEN(Firstname) /*LEN = Exibe a quantidade de caracteres da coluna informada) */
+FROM Person.Person
+
+SELECT FirstName, SUBSTRING(Firstname,1,3) /*SUBSTRING = O método substring() retorna a parte da string entre os índices inicial e final, ou até o final da string.*/
+FROM Person.Person
+
+SELECT productNumber,REPLACE(ProductNumber, '-','#') /* REPLACE = substitui uma informação por outra. */
+FROM Production.Product
