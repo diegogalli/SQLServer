@@ -404,7 +404,8 @@ FROM Sales.SalesOrderDetail
 
 /*------------------------------------- DESAFIOS -------------------------------------*/
 
-/* INNER JOIN = A cláusula INNER JOIN permite usar um operador de comparação para comparar os valores de colunas provenientes de tabelas associadas. Por meio desta cláusula, os registros de duas tabelas são usados para que sejam gerados os dados relacionados de ambas. Usamos as cláusulas WHERE e FROM para especificar esse tipo de associação. */
+/* INNER JOIN = A cláusula INNER JOIN permite usar um operador de comparação para comparar os valores de colunas provenientes de tabelas associadas. Por meio desta cláusula, os registros de duas tabelas são usados para que sejam gerados os dados relacionados de ambas. Usamos as cláusulas WHERE e FROM para especificar esse tipo de associação. 
+Inner Join retorna apenas os resultados que correspondem (existem) tanto na tabela A como na tabela B */
 
 /* Exemplo 01 : BusinessEntityID, FirstName, LastName, EmailAddress */
 
@@ -448,7 +449,38 @@ SELECT PP.BusinessEntityID, PT.Name, PT.PhoneNumberTypeID, PP.PhoneNumber
 FROM Person.PhoneNumberType PT
 INNER JOIN Person.PersonPhone PP on PT.PhoneNumberTypeID = PP.PhoneNumberTypeID 
 
+/* Desafio 02 = Nas tabelas person.StateProvince e person.Address, precisamos das informações
+AddressID,City, StateProvinceID, Nome do Estado */
 
+SELECT TOP 10 PA.AddressID, PA.City, PS.STATEMENT_ID, PS.Name
+FROM Person.Address PA
+INNER JOIN Person.StateProvince PS ON PS.StateProvinceID = PA.StateProvinceID
+
+/*------------------------------------- DESAFIOS -------------------------------------*/
+
+/* FULL OUTER JOIN = Retorna um conjunto de todos registros correspondentes da Tabela A e Tabela B quando são iguais. E além disso se não houver valores correspondentes, ele simplesmente irá preencher esse lado com "null" */
+
+/*Exemplo 01: */
+
+SELECT * FROM nomeTabelaA
+FULL OUTER JOIN nomeTabelaB
+ON nomeTabelaA.nomeColuna = nomeTabelaB.nomeColuna
+
+/* LEFT OUTER JOIN = Retorna um conjunto de todos os registros da TABELA A, e alem disso, os registros correspondentes (quando disponíveis) na TABELA B. Se não houver registros correspondentes, ele simplesmente irá preencher com "null" */
+
+/* Exemplo 01 */
+
+SELECT * FROM nomeTabelaA
+LEFT JOIN nomeTabelaB
+ON nomeTabelaA.nomeColuna = nomeTabelaB.nomeColuna
+
+/* RIGHT OUTER JOIN = Retorna um conjunto de todos os registros da TABELA B, e alem disso, os registros correspondentes (quando disponíveis) na TABELA A. Se não houver registros correspondentes, ele simplesmente irá preencher com "null" */
+
+/* Exemplo 01 */
+
+SELECT * FROM nomeTabelaA
+RIGHT JOIN nomeTabelaB
+ON nomeTabelaA.nomeColuna = nomeTabelaB.nomeColuna
 
 
 
