@@ -619,3 +619,33 @@ FROM Person.Address
 WHERE StateProvinceID IN (
 SELECT StateProvinceID FROM Person.StateProvince
 WHERE Name = 'Alberta')
+
+/* SELF JOIN : Self Joins ou auto-junção são junções de uma tabela com ela mesma. */
+/* Link banco de dados utilizado: https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/databases/northwind-pubs/instnwnd.sql */
+/* Copiar o conteúdo, inserir em uma nova query e executar para criar o novo DataBase */
+
+/*Sintaxe*/
+
+SELECT nomeColuna
+FROM nomeTabelaA, nomeTabelaB
+WHERE condicao
+
+/*Exemplo 1: Informar todos os clientes que moram na mesma região */
+SELECT A.ContactName, B.ContactName
+FROM Customers A, Customers B
+WHERE A.Region = B.Region
+
+/*Exemplo 2: Funcionarios que foram contratados no mesmo ano */
+
+SELECT A.FirstName,A.HireDate,B.FirstName, B.HireDate
+FROM Employees A, Employees B
+WHERE DATEPART(year,A.Hiredate) = DATEPART(year,B.Hiredate)
+
+/* Desafio : Na tabela Order Details, quais os produtos possuem o mesmo percentual de desconto? */
+
+SELECT ODa.ProductID,ODa.Discount,ODb.ProductID,ODb.Discount
+FROM [Order Details] ODa, [Order Details] ODb
+WHERE ODa.Discount = ODb.Discount
+
+
+
