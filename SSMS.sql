@@ -621,6 +621,7 @@ SELECT StateProvinceID FROM Person.StateProvince
 WHERE Name = 'Alberta')
 
 /* SELF JOIN : Self Joins ou auto-junção são junções de uma tabela com ela mesma. */
+/* Diferença entre Joins: https://arquivo.devmedia.com.br/artigos/Fernanda_sallai/sql_join/image001.jpg */
 /* Link banco de dados utilizado: https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/databases/northwind-pubs/instnwnd.sql */
 /* Copiar o conteúdo, inserir em uma nova query e executar para criar o novo DataBase */
 
