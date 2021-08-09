@@ -566,3 +566,56 @@ FROM Sales.SalesOrderDetail
 
 SELECT SQRT(LineTotal) /* Raiz quadrada da coluna */
 FROM Sales.SalesOrderDetail
+
+/* SUBQUERY ou SUBSELECT */
+
+/* Exmplo 01: Monte um relatório de produtos cadastrados, onde o preço de venda está acima da média */
+/* Não utilizando SUBQUERY */
+
+SELECT *
+FROM Production.Product
+
+SELECT AVG(ListPrice) as Media
+FROM Production.Product
+
+/* Utilizando SUBQUERY */
+
+SELECT * /*Seleciona todos */
+FROM Production.Product /* nomeTabela */
+WHERE ListPrice > (Select AVG(listprice) from Production.Product) /* Onde nomeColuna maior (Selecionar Media(nomeColuna) da nomeTabela */
+
+/* Exemplo 02: Qual o nome dos funcionarios que tenham o cargo de "Design Engineer"? */
+/* Sem SUBQUERY */
+
+SELECT *
+FROM Person.Person
+
+SELECT *
+FROM HumanResources.Employee
+
+SELECT *
+FROM HumanResources.Employee
+WHERE JobTitle = 'Design Engineer'
+
+/* Com SUBQUERY */
+
+SELECT FirstName
+FROM Person.Person
+WHERE BusinessEntityID IN (
+SELECT BusinessEntityID FROM HumanResources.Employee
+WHERE JobTitle = 'Design Engineer')
+
+/*Utilizando o INNER JOIN no mesmo problema */
+
+SELECT P.FirstName
+FROM Person.Person P
+INNER JOIN HumanResources.Employee E ON P.BusinessEntityID = E.BusinessEntityID
+AND E.JobTitle = 'Design Engineer'
+
+/* Desafio: Encontre todos os endereços que estejam no estado de 'Alberta', utilizando as tabelas Person.Address e Person.StateProvince */
+
+SELECT *
+FROM Person.Address
+WHERE StateProvinceID IN (
+SELECT StateProvinceID FROM Person.StateProvince
+WHERE Name = 'Alberta')
