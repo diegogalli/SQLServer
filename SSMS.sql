@@ -482,5 +482,32 @@ SELECT * FROM nomeTabelaA
 RIGHT JOIN nomeTabelaB
 ON nomeTabelaA.nomeColuna = nomeTabelaB.nomeColuna
 
+/* UNION = O operador UNION combina dois ou mais resultados de um SELECT em apenas um resultado */
 
+/*Exemplo 01 */
 
+SELECT nomeColuna, nomeColuna1
+FROM nomeTabela1
+UNION
+SELECT nomeColuna, nomeColuna1
+FROM nomeTabela2 
+
+/* Exemplo 02 */
+
+SELECT ProductID ,Name, ProductNumber
+FROM Production.Product
+WHERE Name like '%Chain%'
+UNION
+SELECT ProductID ,Name, ProductNumber
+FROM Production.Product
+WHERE Name like '%Decal%'
+
+/* Exemplo 03 */
+
+SELECT FirstName, Title, MiddleName
+FROM Person.Person
+WHERE Title = 'Mr.'
+UNION
+SELECT FirstName, Title, MiddleName
+FROM Person.Person
+WHERE MiddleName = 'A'
