@@ -511,3 +511,23 @@ UNION
 SELECT FirstName, Title, MiddleName
 FROM Person.Person
 WHERE MiddleName = 'A'
+
+/* DATEPART = Essa função retorna um inteiro que representa o datepart especificado do argumento date especificado. */
+/* Link: https://docs.microsoft.com/pt-br/sql/t-sql/functions/datepart-transact-sql?view=sql-server-ver15 */
+
+/*Exemplo 01 */
+
+SELECT nomeColuna, DATEPART(nomeDatepart, nomeColuna1)
+FROM nomeTabela
+
+/* Exemplo 02 */
+
+SELECT SalesOrderID, DATEPART(month, OrderDate) as Mes
+FROM Sales.SalesOrderHeader
+
+/* Exemplo 03 */
+
+SELECT AVG(TotalDue) as Media, DATEPART(month,OrderDate) as Mes
+FROM Sales.SalesOrderHeader
+GROUP BY DATEPART(month, orderdate)
+ORDER BY Mes
