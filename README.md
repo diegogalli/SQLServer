@@ -1,5 +1,6 @@
 # SQLServer
 Curso SQL Completo 2019 [Iniciantes] + Desafios + Muita Prática
+Downloads Banco de dados utilizado para o curso: https://drive.google.com/file/d/1LCofjYj-pV1asBLrxtgPDsbqMFRefHW5/view
 
 # Comandos
 ### Criar novo banco de dados:
