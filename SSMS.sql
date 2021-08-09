@@ -647,5 +647,33 @@ SELECT ODa.ProductID,ODa.Discount,ODb.ProductID,ODb.Discount
 FROM [Order Details] ODa, [Order Details] ODb
 WHERE ODa.Discount = ODb.Discount
 
+/* Tipos de Dados */
+/* 1 - Boleanos: Por padrão, o boleando é inicializado como nulo e pode receber tanto 1 ou 0, representado por BIT 
+
+   2 - Caracteres: Tamanho fixo, representado por CHAR, onde permite inserir até uma quantidade fixa de caracteres e sempre ocupa todo o espaço reservado. Por exemplo, se definirmos que o valor do espaço é de 50 caracteres e inserimos apenas 10, será reconhecido os 10 caracteres inseridos mais o restante para completar os 50 caracteres. 
+   Podemos utilizar variaveis, representados por VARCHAR ou NVARCHAR, onde permite inserir até uma quantidade que for definida, porém só utiliza o espaço que for preenchido. Por exemplo, se definirmos que o valor do espaço é 50 caracteres e inserimos apenas 10, será reconhecido apenas os 10 inseridos.
+   
+   3 - Números: 
+   VALORES EXATOS: 
+   3.1 - TINYINT não possui o valor fracionado, por exemplo, valores 1.43 , 24.23 , somente valores inteiros, como: 1 , 2 , 1212134 e etc.
+   3.2 - SMALLINT: Mesma descrição que o TINYINT, porém com um limite maior
+   3.3 - INT: Mesma descrição que o SMALLINT, porém com um limite maior
+   3.4 - BIGINT: Mesma descrição que o INT, porém com um limite maior
+   Link com os limites dos valores exatos: https://docs.microsoft.com/pt-br/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15
+   3.5 - NUMERIC ou DECIMAL: Valores exatos, porém permite ter parte fracionados, que também podem ser especificados a precisão e escala (escala é o número de digitos na parte fracional), por exemplo: NUMERIC (5,2) 113,44 onde temos a precisão de 5 dígitos e 2 valores após a virgula.
+   VALORES APROXIMADOS:
+   3.6 - REAL: Tem precisão aproximada de até 15 dígitos
+   3.7 - FLOAT: Mesmo conceito de REAL
+   
+   4 - Temporais :
+   DATE: Armazena data no formato aaaa/mm/dd (ano/mes/dia)
+   DATETIME: Armazena data e horas no formato aaaa/mm/dd:hh:mm:ss (ano/mes/dia:horas:minutos:segundos)
+   DATETIME2: Armazena data e horas com adição de milissegundos no formato aaaa/mm/dd:hh:mm:sssssss (ano/mes/dia:horas:minutos:milissegundossegundos)
+   SMALLDATETIME: Armazena data e hora respeitando o limite entre '1900-01-01:00:00:00' até '2079-06-06:23:59:59'
+   TIME: Armazena horas, minutos, segundo e milissegundos respeitando o limite de '00:00:00.0000000' até '23:59:59.9999999'
+   DATETIMEOFFSET: Permite armazenar informações de data e horas, incluindo o fuso horario */
+   
+   
+
 
 
