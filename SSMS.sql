@@ -733,3 +733,81 @@ Dislikes INT DEFAULT 0 ,
 Duracao INT NOT NULL,
 CanalId INT FOREIGN KEY REFERENCES Canal(CanalId)
 );
+
+/* INSERT INTO */
+/* SINTAXE */
+
+INSERT INTO nomeTabela(nomeColuna, nomeColuna1, ...)
+VALUES(valor1,valor2)
+VALUES(valor1,valor2)
+VALUES(valor1,valor2)
+
+/*Inserir informações de outra tabela, dentro de uma tabela existente */
+
+INSERT INTO nomeTabelaA (nomeColuna)
+SELECT nomeColuna1
+FROM nomeTabelaB
+
+/* Exemplo 03 */
+/* Criando uma nova tabela e inserindo informações */
+
+CREATE TABLE Aula (
+Id INT PRIMARY KEY ,
+Nome VARCHAR(200)
+);
+
+/* Inserindo valores na tabela acima */
+INSERT INTO Aula(Id,Nome)
+VALUES(1,'Aula 1')
+
+/* Inserindo diversos valores na tabela criada */
+
+INSERT INTO Aula(Id,Nome)
+VALUES
+(2,'Aula 2'),
+(3,'Aula 3'),
+(4,'Aula 4');
+
+/* Exemplo 04: Criando uma nova tabela e inserindo dados de outra tabela */
+
+SELECT * INTO tabelaNova FROM Aula /* Criamos uma nova tabela, com os dados da tabela Aula */
+
+/*Desafio: Crie uma nova tabela */
+
+CREATE TABLE Tabela01 (
+Id INT,
+Nome VARCHAR(150),
+Sobrenome VARCHAR(150),
+);
+
+/* Insira uma linha na nova tabela */
+
+INSERT INTO Tabela01(Id,Nome,Sobrenome)
+VALUES(1,'Fulano','Silva')
+
+/* Insira 3 linhas de dados ao mesmo tempo */
+
+INSERT INTO Tabela01(Id,Nome,Sobrenome)
+VALUES
+(2,'Beltrano','Araujo'),
+(3,'Ciclano','Silva'),
+(4,'Joao','Silva')
+
+/* Crie uma segunda tabela */
+
+CREATE TABLE Tabela02(
+Id Int,
+Nome varchar(150),
+Sobrenome VARCHAR(150),
+);
+
+/* Insira uma linha na nova tabela */
+
+INSERT INTO Tabela02(Id,Nome,Sobrenome)
+values (5,'Jose','Oliveira')
+
+/* Copie os dados da segunda tabela para a primeira */
+
+INSERT INTO Tabela01 (Id,Nome,Sobrenome)
+SELECT Id,Nome,Sobrenome
+FROM Tabela02
