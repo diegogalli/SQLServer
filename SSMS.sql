@@ -674,7 +674,27 @@ WHERE ODa.Discount = ODb.Discount
    TIME: Armazena horas, minutos, segundo e milissegundos respeitando o limite de '00:00:00.0000000' até '23:59:59.9999999'
    DATETIMEOFFSET: Permite armazenar informações de data e horas, incluindo o fuso horario */
    
+/* CHAVE PRIMÁRIA E ESTRANGEIRA */
    
+/* CHAVE PRIMÁRIA é basicamente uma coluna ou grupo de colunas, usada para identificar unicamente uma linha em uma tabela.
+* Você consegue criar essas chaves primárias através das restrições (constraints termo em inglês), que são regras que você define quando está criando uma coluna .
+* Utilizando as restrições, você está criando um índice único para aquela coluna ou grupo de colunas */
+   
+/*SINTAXE*/
+
+CREATE TABLE nomeTabela (
+	nomeColuna tipoDeDados PRIMARY KEY
+	nomeColuna tipoDeDados ...
+)
+/* CHAVE ESTRANGEIRA */
+/* * Uma chave estrangeira é uma coluna ou grupo de colunas em uma tabela, que identifica unicamente uma linha em outra tabela, ou seja, uma chave estrangeira é definida em uma tabela, onde ela é apenas uma referencia e não contém todos os dados ali.
+* Então uma chave estrangeira, é simplesmente uma coluna ou grupo de colunas que é uma chave primária em outra tabela.
+* A tabela que contem a chave estrangeira é chamada de tabela referenciadora ou tabela filho. E a tabela na qual a chave estrangeira é referenciada, é chamada de tabela referenciada ou tabela pai.
+* Uma tabela pode ter mais de uma chave estrangeira, dependendo do seu relacionamento com as outras tabelas.
+* No SQL SERVER você define uma chave estrangeira atravez de um "Foreign Key Constraint" ou Restrição de chave estrangeira . 
+* Uma restrição de Chave Estrangeira, indica que os valores em uma coluna ou grupo de colunas na tabela filho, correspondem aos valores na tabela pai.
+* Nós podemos entender que uma chave estrangeira mantém a "Integridade referencial"
+
 
 
 
