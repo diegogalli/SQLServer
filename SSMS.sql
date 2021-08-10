@@ -812,7 +812,7 @@ INSERT INTO Tabela01 (Id,Nome,Sobrenome)
 SELECT Id,Nome,Sobrenome
 FROM Tabela02
 
-/* UPDATE : Atualização */
+/* UPDATE : comando para atualizar registros */
 /* SINTAXE */
 
 UPDATE nomeTabela
@@ -828,3 +828,9 @@ Where Id = 3;
 UPDATE Aula 
 Set Nome = 'Aula 04' 
 Where Id = 4;
+
+/* Delete: comando utilizado para apagar dados */
+/* SINTAXE */
+
+DELETE FROM nomeTabela
+Where condicao
