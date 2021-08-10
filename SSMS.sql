@@ -866,3 +866,12 @@ EXEC sp_RENAME 'nomeTabela.nomeColuna', 'nomeColunaNova', 'COLUMN'
 /* SINTAXE */
 
 EXEC sp_RENAME 'nomeTabela', 'nomeTabelaNova'
+
+/* DROP TABLE: Exclusão de tabela */
+/* SINTAXE */
+
+DROP TABLE nomeTabela
+
+/* Deletar apenas o conteudo dentro da tabela */
+
+TRUNCATE TABLE nomeTabela
