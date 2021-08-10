@@ -811,3 +811,20 @@ values (5,'Jose','Oliveira')
 INSERT INTO Tabela01 (Id,Nome,Sobrenome)
 SELECT Id,Nome,Sobrenome
 FROM Tabela02
+
+/* UPDATE : Atualização */
+/* SINTAXE */
+
+UPDATE nomeTabela
+SET nomeColuna = valor
+	nomeColuna1 = valor1
+WHERE condicao
+
+/* Desafio: Alterar o nome de 2 linhas da tabela Aula, criada posteriormente */
+
+UPDATE Aula 
+SET Nome = 'Aula 03'
+Where Id = 3;
+UPDATE Aula 
+Set Nome = 'Aula 04' 
+Where Id = 4;
