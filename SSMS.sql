@@ -834,3 +834,35 @@ Where Id = 4;
 
 DELETE FROM nomeTabela
 Where condicao
+
+/* Alter Table: Comando para alterar a estrutura de uma tabela */
+/* Sintaxe*/
+
+ALTER TABLE nomeTabela
+ACAO 
+
+/* Exemplos de o que pode ser feito:
+* Adicionar, Remover ou alterar uma coluna ;
+* Setar valores padrões para uma coluna ;
+* Adicionar ou Remover restrições de colunas ;
+* Renomear uma tabela */
+
+/* Inserindo uma nova coluna */
+
+ALTER TABLE nomeTabela
+ADD nomeColuna BIT /* ACAO nomeColuna tipoDeDados */
+
+/* Alterar tipos de limites da coluna */
+
+ALTER TABLE nomeTabela
+ALTER COLUMN nomeColuna VARCHAR(novoValor) not null
+
+/* Alterar o nome de uma coluna, teremos que utilizar uma PROCEDURE */
+/* SINTAXE */
+
+EXEC sp_RENAME 'nomeTabela.nomeColuna', 'nomeColunaNova', 'COLUMN'
+
+/* Alterar o nome de uma tabela, teremos que utilizar uma PROCEDURE */
+/* SINTAXE */
+
+EXEC sp_RENAME 'nomeTabela', 'nomeTabelaNova'
