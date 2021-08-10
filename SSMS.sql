@@ -893,4 +893,15 @@ CREATE TABLE CarteiraMotorista(
 Id int NOT NULL, /* Id não pode ser nulo */
 Nome VARCHAR(255) NOT NULL, /* Nome não pode ser nulo */
 Idade INT CHECK ( Idade >= 18)
-)
+);
+
+/* UNIQUE CONSTRAINT: Utilizado para obter colunas unicas, não seja possivel criar campos duplicados, diferentes de PRIMARY KEY */
+/* SINTAXE */
+
+CREATE TABLE CarteiraMotorista (
+Id int NOT NULL,
+Nome VARCHAR(255) NOT NULL,
+Idade INT CHECK ( Idade >= 18)
+CodigoCNH INT NOT NULL UNIQUE
+);
+
