@@ -693,8 +693,43 @@ CREATE TABLE nomeTabela (
 * Uma tabela pode ter mais de uma chave estrangeira, dependendo do seu relacionamento com as outras tabelas.
 * No SQL SERVER você define uma chave estrangeira atravez de um "Foreign Key Constraint" ou Restrição de chave estrangeira . 
 * Uma restrição de Chave Estrangeira, indica que os valores em uma coluna ou grupo de colunas na tabela filho, correspondem aos valores na tabela pai.
-* Nós podemos entender que uma chave estrangeira mantém a "Integridade referencial"
+* Nós podemos entender que uma chave estrangeira mantém a "Integridade referencial" */
 
+/* CREATE TABLE NA PRÁTICA */
+/* SINTAXE */
 
+CREATE TABLE nomeTabela (
+	nomeColuna restricaoDaColuna,
+	nomeColuna1 restricaoDaColuna,	/* se houver restrições */
+	nomeColuna2 restricaoDaColuna , /* se houver restrições */
+	...
+);	
 
+/* Principais tipos de restrições que pode ser aplicadas:
+* NOT NULL: Não permite nulos ;
+* UNIQUE: Força que todos os valores em uma coluna sejam diferentes ;
+* PRIMARY KEY: Uma junção de NOT NULL e UNIQUE ;
+* FOREIGN KEY: Identifica unicamente uma linha em outra tabela ;
+* CHECK: Força uma condição específica em uma coluna ;
+* DEFAULT: Força um valor padrão quando nenhum valor é passado . */
 
+/* Exemplo 01: Criando tabela com Primary Key */
+
+CREATE TABLE Canal (
+CanalId INT PRIMARY KEY ,
+Nome VARCHAR(150) NOT NULL,
+ContagemInscritos INT DEFAULT 0 ,
+DataCriacao DATETIME NOT NULL
+);
+
+/* Exemplo 02: Criando tabela com Foreign Key, referenciada com o exemplo 01 */
+
+CREATE TABLE Video (
+VideoId INT PRIMARY KEY ,
+Nome VARCHAR(150) NOT NULL,
+Visualizacoes INT DEFAULT 0 ,
+Likes INT DEFAULT 0 ,
+Dislikes INT DEFAULT 0 ,
+Duracao INT NOT NULL,
+CanalId INT FOREIGN KEY REFERENCES Canal(CanalId)
+);
