@@ -895,7 +895,8 @@ Nome VARCHAR(255) NOT NULL, /* Nome não pode ser nulo */
 Idade INT CHECK ( Idade >= 18)
 );
 
-/* UNIQUE CONSTRAINT: Utilizado para obter colunas unicas, não seja possivel criar campos duplicados, diferentes de PRIMARY KEY */
+/* UNIQUE CONSTRAINT: Utilizado para obter colunas unicas, não seja possivel criar campos duplicados, diferentes de PRIMARY KEY
+Link CONSTRAINT: https://docs.microsoft.com/pt-br/sql/relational-databases/tables/unique-constraints-and-check-constraints?view=sql-server-ver15 */
 /* SINTAXE */
 
 CREATE TABLE CarteiraMotorista (
@@ -905,3 +906,12 @@ Idade INT CHECK ( Idade >= 18)
 CodigoCNH INT NOT NULL UNIQUE
 );
 
+/* VIEW: pode ser definida como uma tabela virtual composta por linhas e colunas de dados vindos de tabelas relacionadas em uma query (um agrupamento de SELECT’s, por exemplo). As linhas e colunas da view são geradas dinamicamente no momento em que é feita uma referência a ela.
+Link: https://www.devmedia.com.br/conceitos-e-criacao-de-views-no-sql-server/22390 */
+
+/* Exemplo */
+
+CREATE VIEW [Pessoas Simplificado] AS
+SELECT Firstname,MiddleName, Lastname
+FROM Person.Person
+WHERE Title = 'Ms.'
