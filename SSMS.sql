@@ -875,3 +875,13 @@ DROP TABLE nomeTabela
 /* Deletar apenas o conteudo dentro da tabela */
 
 TRUNCATE TABLE nomeTabela
+
+/* CHECK CONSTRAINT: Cria restrições de valores, que podem ser inseridos em uma coluna de uma tabela em banco de dados quando você está criando uma nova tabela. */
+
+/* SINTAXE criando uma tabela com CHECK */
+
+CREATE TABLE CarteiraMotorista (
+Id int NOT NULL,
+Nome VARCHAR(255) NOT NULL,
+Idade INT CHECK ( Idade >= 18)
+);
