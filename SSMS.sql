@@ -885,3 +885,12 @@ Id int NOT NULL,
 Nome VARCHAR(255) NOT NULL,
 Idade INT CHECK ( Idade >= 18)
 );
+
+/* NOT NULL comando para forçar a inserção de dados, onde a informação não pode ser nulo */
+/* SINTAXE criando uma nova tabela e utilizando NOT NULL*/
+
+CREATE TABLE CarteiraMotorista(
+Id int NOT NULL, /* Id não pode ser nulo */
+Nome VARCHAR(255) NOT NULL, /* Nome não pode ser nulo */
+Idade INT CHECK ( Idade >= 18)
+)
