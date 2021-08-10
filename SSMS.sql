@@ -734,7 +734,7 @@ Duracao INT NOT NULL,
 CanalId INT FOREIGN KEY REFERENCES Canal(CanalId)
 );
 
-/* INSERT INTO */
+/* INSERT INTO: Inserção de informações */
 /* SINTAXE */
 
 INSERT INTO nomeTabela(nomeColuna, nomeColuna1, ...)
