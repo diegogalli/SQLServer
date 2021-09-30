@@ -436,3 +436,63 @@ FROM Production.Product
 SELECT UnitPrice as "Preço Unitario"
 FROM Sales.SalesOrderDetail
 ```
+
+## INNER JOIN
+
+* A cláusula INNER JOIN permite usar um operador de comparação para comparar os valores de colunas provenientes de tabelas associadas. Por meio desta cláusula, os registros de duas tabelas são usados para que sejam gerados os dados relacionados de ambas. Usamos as cláusulas WHERE e FROM para especificar esse tipo de associação. 
+Inner Join retorna apenas os resultados que correspondem (existem) tanto na tabela A como na tabela B
+
+``` sql
+/*Exemplo 01 : BusinessEntityID, FirstName, LastName, EmailAddress*/
+SELECT P.BusinessEntityID, P.Firstname, P.LastName, PE.EmailAddress
+FROM Person.Person as P
+INNER JOIN Person.EmailAddress PE on P.BusinessEntityID = PE.BusinessEntityID
+/* seleciona apelidoTabela.nomeColuna, apelidoTabela.nomeColuna1, apelidoTabela1.nomeColuna */
+/* nomeTabela apelido P */
+/* concatenar nomeTabela1 apelido PE quando ON nomeTabela.nomeColuna for igual nomeTabela1.nomeColuna */
+```
+``` sql
+/* Eemplo 02 : ListPrice, Nome do Produto, Nome da Subcategoria */
+SELECT TOP 10 *
+FROM Production.Product
+
+SELECT TOP 10 *
+FROM Production.ProductSubcategory
+
+SELECT PP.ListPrice, PP.Name, pps.Name
+FROM Production.Product as PP
+INNER JOIN Production.ProductSubcategory as PPS on PP.ProductSubcategoryID = PPS.ProductSubcategoryID
+```
+``` sql
+/* Exemplo 03 = Unir informações de duas tabelas */
+SELECT TOP 10 *
+FROM Person.BusinessEntityAddress BEA
+INNER JOIN Person.Address PA on PA.AddressID = BEA.AddressID
+```
+
+## Desafios INNER JOIN
+
+* DESAFIO 01 = Nas tabelas person.PhoneNumberType e person.PersonPhone, precisamos das informações BusinessEntityId, Name, PhoneNumberTypeId e PhoneNumber
+* DESAFIO 02 = Nas tabelas person.StateProvince e person.Address, precisamos das informações AddressID,City, StateProvinceID, Nome do Estado
+
+**Solucções Desafios**
+``` sql
+/* DESAFIO 01 */
+select top 10 *
+from person.PhoneNumberType
+
+select top 10 *
+from person.PersonPhone
+
+SELECT PP.BusinessEntityID, PT.Name, PT.PhoneNumberTypeID, PP.PhoneNumber
+FROM Person.PhoneNumberType PT
+INNER JOIN Person.PersonPhone PP on PT.PhoneNumberTypeID = PP.PhoneNumberTypeID 
+```
+``` sql
+/* DESAFIO 02 */
+SELECT TOP 10 PA.AddressID, PA.City, PS.STATEMENT_ID, PS.Name
+FROM Person.Address PA
+INNER JOIN Person.StateProvince PS ON PS.StateProvinceID = PA.StateProvinceID
+```
+
+
