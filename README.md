@@ -495,4 +495,89 @@ FROM Person.Address PA
 INNER JOIN Person.StateProvince PS ON PS.StateProvinceID = PA.StateProvinceID
 ```
 
+## FULL OUTER JOIN
 
+* Retorna um conjunto de todos registros correspondentes da Tabela A e Tabela B quando são iguais. E além disso se não houver valores correspondentes, ele simplesmente irá preencher esse lado com "null"
+
+``` sql
+/*Exemplo 01 */
+SELECT * FROM nomeTabelaA
+FULL OUTER JOIN nomeTabelaB
+ON nomeTabelaA.nomeColuna = nomeTabelaB.nomeColuna
+```
+
+## LEFT OUTER JOIN
+
+* Retorna um conjunto de todos os registros da TABELA A, e alem disso, os registros correspondentes (quando disponíveis) na TABELA B. Se não houver registros correspondentes, ele simplesmente irá preencher com "null"
+
+``` sql
+/*Exemplo 01 */
+SELECT * FROM nomeTabelaA
+LEFT JOIN nomeTabelaB
+ON nomeTabelaA.nomeColuna = nomeTabelaB.nomeColuna
+```
+
+## RIGHT OUTER JOIN
+
+* Retorna um conjunto de todos os registros da TABELA B, e alem disso, os registros correspondentes (quando disponíveis) na TABELA A. Se não houver registros correspondentes, ele simplesmente irá preencher com "null"
+
+``` sql
+/*Exemplo 01 */
+SELECT * FROM nomeTabelaA
+RIGHT JOIN nomeTabelaB
+ON nomeTabelaA.nomeColuna = nomeTabelaB.nomeColuna
+```
+
+## UNION 
+
+* O operador UNION combina dois ou mais resultados de um SELECT em apenas um resultado
+``` sql
+/*Exemplo 01 */
+SELECT nomeColuna, nomeColuna1
+FROM nomeTabela1
+UNION
+SELECT nomeColuna, nomeColuna1
+FROM nomeTabela2 
+``` 
+``` sql
+/*Exemplo 02 */
+SELECT ProductID ,Name, ProductNumber
+FROM Production.Product
+WHERE Name like '%Chain%'
+UNION
+SELECT ProductID ,Name, ProductNumber
+FROM Production.Product
+WHERE Name like '%Decal%'
+```
+``` sql
+/*Exemplo 02 */
+SELECT FirstName, Title, MiddleName
+FROM Person.Person
+WHERE Title = 'Mr.'
+UNION
+SELECT FirstName, Title, MiddleName
+FROM Person.Person
+WHERE MiddleName = 'A'
+```
+
+## DATEPART
+
+* Essa função retorna um inteiro que representa o datepart especificado do argumento date especificado. Mais informações em: Link: https://docs.microsoft.com/pt-br/sql/t-sql/functions/datepart-transact-sql?view=sql-server-ver15
+
+``` sql
+/*Exemplo 01 */
+SELECT nomeColuna, DATEPART(nomeDatepart, nomeColuna1)
+FROM nomeTabela
+```
+``` sql
+/*Exemplo 02 */
+SELECT SalesOrderID, DATEPART(month, OrderDate) as Mes
+FROM Sales.SalesOrderHeader
+```
+``` sql
+/*Exemplo 03 */
+SELECT AVG(TotalDue) as Media, DATEPART(month,OrderDate) as Mes
+FROM Sales.SalesOrderHeader
+GROUP BY DATEPART(month, orderdate)
+ORDER BY Mes
+```
