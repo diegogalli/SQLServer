@@ -258,3 +258,98 @@ SELECT COUNT(Name)
 FROM Production.Product
 WHERE Name like '%road%';
 ```
+## Principais funções de agregação MIN, MAX, SUM e AVG
+
+* Funções de agregação basicamente agregam ou combinam dados de uma tabela em 1 só resultado.
+
+**SUM = Soma**
+
+``` sql
+/*Exemplo SUM*/
+SELECT TOP 10 SUM(Linetotal) as "SOMA" --Seleciona os 10 primeiros resultados e SUM(SOMA) de todos na coluna
+FROM Sales.SalesOrderDetail	;		   -- Linetotal e acrescenta um apelido AS com descrição "SOMA"
+/*nomeTabela*/
+```
+**MIN = Mínimo**
+``` sql
+/*Exemplo MIN*/
+SELECT TOP 10 MIN(Linetotal) --Seleciona o valor MIN(Mínimo) dos 10 primeiros da coluna Linetotal
+FROM Sales.SalesOrderDetail;
+/*nomeTabela*/
+```
+**MAX = Máximo**
+``` sql
+/*Exemplo MAX*/
+SELECT TOP 10 MAX(Linetotal) --Seleciona o valor MAX(Máximo) dos 10 primeiros da coluna Linetotal
+FROM Sales.SalesOrderDetail;
+/*nomeTabela*/
+```
+**AVG = Média**
+``` sql
+/*Exemplo AVG*/
+SELECT TOP 10 avg(Linetotal) --Seleciona o valor AVG(Médio) dos 10 primeiros da coluna Linetotal
+FROM Sales.SalesOrderDetail
+/*nomeTabela*/
+```
+**GROUP BY = Basicamente divide o resultado da sua pesquisa em grupos**
+``` sql
+/*GROUP BY*/
+SELECT nomeColuna, funcaoAgregacao(nomeColuna1)
+FROM nomeTabela
+GROUP BY nomeColuna;
+```
+``` sql
+/*Exemplo GROUP BY*/
+SELECT SpecialOfferId, SUM(UnitPrice) AS "SOMA" /*nomeColuna, funcaoAgregacao , apelido */
+FROM Sales.SalesOrderDetail		/*nomeTabela*/
+GROUP BY SpecialOfferID			/* agrupar por nomeColuna */
+```
+
+## Desafios Funções de agregação
+
+* DESAFIO 01 = Quantas pessoas tem o mesmo Middlename agrupadas por Middlename?
+* DESAFIO 02 = Preciso saber em média qual é a quantidade(quantity) que cada produto é 
+vendido na loja
+* DESAFIO 03 = Quais foram as 10 vendas que no total tiveram os maiores valores de venda
+(linetotal) por produto, do maior valor para o menor?
+* DESAFIO 04 = Quantos produtos e qual a quantidade media de produtos, temos cadastrados 
+nas nossas ordem de serviço (WorkOrder), agrupados por productId ?
+
+**Soluções Desafios**
+
+``` sql
+/*DESAFIO 01*/
+SELECT MiddleName, COUNT(FirstName) as "Quantidade"
+FROM Person.Person
+Group by MiddleName
+```
+``` sql
+/*DESAFIO 02*/
+SELECT ProductID, avg(OrderQty) as "Média"
+FROM Sales.SalesOrderDetail
+GROUP BY ProductID 
+```
+``` sql
+/*DESAFIO 03*/
+SELECT TOP 10 ProductID, SUM(LineTotal) as "SOMA"
+FROM Sales.SalesOrderDetail
+GROUP BY ProductID
+ORDER BY SUM(linetotal) DESC;
+```
+``` sql
+/*DESAFIO 04*/
+SELECT PRODUCTID, COUNT(PRODUCTID) as "Contagem", 
+AVG(OrderQty) as "MediaProd"
+FROM Production.WorkOrder
+GROUP BY ProductID
+```
+
+
+
+
+
+
+
+
+
+
