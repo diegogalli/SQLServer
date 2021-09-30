@@ -944,3 +944,119 @@ UPDATE Aula
 Set Nome = 'Aula 04' 
 Where Id = 4;
 ```
+
+## DELETE
+
+* Comando utilizado para apagar dados
+``` sql
+/* Sintaxe */
+DELETE FROM nomeTabela
+Where condicao
+```
+
+## ALTER TABLE
+
+* Comando para alterar a estrutura de uma tabela
+``` sql
+/* Sintaxe */
+ALTER TABLE nomeTabela
+ACAO 
+```
+
+* Exemplos de o que pode ser feito:
+* Adicionar, Remover ou alterar uma coluna ;
+* Setar valores padrões para uma coluna ;
+* Adicionar ou Remover restrições de colunas ;
+* Renomear uma tabela *
+
+``` sql
+/*Inserindo uma nova coluna*/
+ALTER TABLE nomeTabela
+ADD nomeColuna BIT /* ACAO nomeColuna tipoDeDados */
+```
+``` sql
+/* Alterar tipos de limites da coluna */
+ALTER TABLE nomeTabela
+ALTER COLUMN nomeColuna VARCHAR(novoValor) not null
+```
+``` sql
+/* Alterar o nome de uma coluna, teremos que utilizar uma PROCEDURE */
+/* SINTAXE */
+EXEC sp_RENAME 'nomeTabela.nomeColuna', 'nomeColunaNova', 'COLUMN'
+```
+``` sql
+/* Alterar o nome de uma tabela, teremos que utilizar uma PROCEDURE */
+/* SINTAXE */
+EXEC sp_RENAME 'nomeTabela', 'nomeTabelaNova'
+```
+**Procedure:** https://www.devmedia.com.br/introducao-aos-stored-procedures-no-sql-server/7904
+
+## DROP TABLE
+
+* Exclusão de tabela
+
+``` sql
+/* SINTAXE */
+DROP TABLE nomeTabela
+```
+``` sql
+/* Deletar apenas o conteudo dentro da tabela */
+TRUNCATE TABLE nomeTabela
+```
+
+## CHECK CONSTRAINT
+
+* Cria restrições de valores, que podem ser inseridos em uma coluna de uma tabela em banco de dados quando você está criando uma nova tabela.
+
+``` sql
+/* SINTAXE criando uma tabela com CHECK */
+
+CREATE TABLE CarteiraMotorista (
+Id int NOT NULL,
+Nome VARCHAR(255) NOT NULL,
+Idade INT CHECK ( Idade >= 18)
+);
+```
+
+## NOT NULL
+
+* NOT NULL comando para forçar a inserção de dados, onde a informação não pode ser nulo
+
+``` sql
+/* SINTAXE criando uma nova tabela e utilizando NOT NULL*/
+
+CREATE TABLE CarteiraMotorista(
+Id int NOT NULL, /* Id não pode ser nulo */
+Nome VARCHAR(255) NOT NULL, /* Nome não pode ser nulo */
+Idade INT CHECK ( Idade >= 18)
+);
+```
+
+## UNIQUE CONSTRAINT
+
+* Utilizado para obter colunas unicas, não seja possivel criar campos duplicados, diferentes de PRIMARY KEY, Link CONSTRAINT: https://docs.microsoft.com/pt-br/sql/relational-databases/tables/unique-constraints-and-check-constraints?view=sql-server-ver15
+
+``` sql
+/* SINTAXE */
+
+CREATE TABLE CarteiraMotorista (
+Id int NOT NULL,
+Nome VARCHAR(255) NOT NULL,
+Idade INT CHECK ( Idade >= 18)
+CodigoCNH INT NOT NULL UNIQUE
+);
+```
+
+## VIEW
+
+* Pode ser definida como uma tabela virtual composta por linhas e colunas de dados vindos de tabelas relacionadas em uma query (um agrupamento de SELECT’s, por exemplo). As linhas e colunas da view são geradas dinamicamente no momento em que é feita uma referência a ela.
+* Link: https://www.devmedia.com.br/conceitos-e-criacao-de-views-no-sql-server/22390
+
+``` sql
+/* Exemplo */
+
+CREATE VIEW [Pessoas Simplificado] AS
+SELECT Firstname,MiddleName, Lastname
+FROM Person.Person
+WHERE Title = 'Ms.'
+```
