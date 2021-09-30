@@ -600,3 +600,24 @@ FROM Person.Person
 SELECT productNumber,REPLACE(ProductNumber, '-','#') /* REPLACE = substitui uma informação por outra. */
 FROM Production.Product
 ```
+
+## Funções Matemáticas
+
+* Link com todas as funções disponíveis: https://docs.microsoft.com/pt-br/sql/t-sql/functions/mathematical-functions-transact-sql?view=sql-server-ver15
+
+``` sql
+SELECT MAX(LineTotal) /* Valor maximo da coluna */
+FROM Sales.SalesOrderDetail
+
+SELECT MIN(LineTotal) /* Valor minimo da coluna */
+FROM Sales.SalesOrderDetail
+
+SELECT AVG(LineTotal) /* Valor médio da coluna */
+FROM Sales.SalesOrderDetail
+
+SELECT ROUND(LineTotal,2) /* Valor arredondado para as primeiras 2 casas decimas da coluna */
+FROM Sales.SalesOrderDetail
+
+SELECT SQRT(LineTotal) /* Raiz quadrada da coluna */
+FROM Sales.SalesOrderDetail
+```
