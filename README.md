@@ -916,3 +916,31 @@ INSERT INTO Tabela01 (Id,Nome,Sobrenome)
 SELECT Id,Nome,Sobrenome
 FROM Tabela02
 ```
+
+## UPDATE
+
+* Comando para atualizar registros
+
+``` sql
+/* Sintaxe */
+UPDATE nomeTabela
+SET nomeColuna = valor
+	nomeColuna1 = valor1
+WHERE condicao
+```
+
+## DESAFIO
+
+* Alterar o nome de 2 linhas da tabela Aula, criada posteriormente
+
+**Solução Desafio**
+
+``` sql
+/* Desafio 01 */
+UPDATE Aula 
+SET Nome = 'Aula 03'
+Where Id = 3;
+UPDATE Aula 
+Set Nome = 'Aula 04' 
+Where Id = 4;
+```
