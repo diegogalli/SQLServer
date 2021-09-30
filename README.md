@@ -380,7 +380,7 @@ HAVING COUNT(Firstname) > 10
 ```
 **ATENÇÃO! A grande diferença entre HAVING e WHERE, o GROUP BY é aplicado depois que os dados já foram agrupados, enquanto o WHERE é aplicado antes dos dados serem agrupados.**
 
-## Desafio HAVING
+## Desafios HAVING
 
 * Desafio 01 = Estamos querendo identificar as provincias(stateProvinceId) com o maior numero de cadastros no nosso sistema, então é preciso encontrar quais provincias (stateProvinceId) estão registradas no banco de dados mais que 1000 vezes.
 * Desafio 02 = Os gerentes de uma multinacional, querem saber quais produtos (productId) não
@@ -401,4 +401,38 @@ SELECT ProductId, AVG(LineTotal) as "MEDIA"
 From Sales.SalesOrderDetail
 GROUP BY ProductID
 HAVING AVG(LineTotal) < 1000000
+```
+
+## AS = Apelido
+
+``` sql
+/*AS*/
+SELECT TOP 10 ListPrice as "Lista de Preços" /*TOP 10 nomeColuna apelido "Lista de Preços" */
+FROM Production.Product /*nomeTabela*/
+```
+
+## Desafios AS
+
+* DESAFIO 01 = Encontrar o FirstName e LastName da tabela Person.Person e alterar a descrição
+* DESAFIO 02 = Renomear o ProductNumber da tabela production.product para "Numero do Produto
+* DESAFIO 03 = Renomear na tabela Sales.SalesOrderDetail a coluna unitPrice para "Preço Unitario
+
+**Soluções desafios**
+
+``` sql
+/*DESAFIO 01 AS*/
+SELECT FirstName as "Nome" , LastName as "Sobrenome"
+FROM Person.Person
+```
+
+``` sql
+/*DESAFIO 02 AS*/
+SELECT ProductNumber as "Numero do Produto"
+FROM Production.Product
+```
+
+``` sql
+/*DESAFIO 03 AS*/
+SELECT UnitPrice as "Preço Unitario"
+FROM Sales.SalesOrderDetail
 ```
