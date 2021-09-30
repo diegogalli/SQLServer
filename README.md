@@ -343,13 +343,62 @@ AVG(OrderQty) as "MediaProd"
 FROM Production.WorkOrder
 GROUP BY ProductID
 ```
+## HAVING
 
+* Usado em junção com o GROUP BY para filtrar resultados de um agrupamento.
 
+``` sql
+/*HAVING*/
+SELECT coluna, funcaoAgregacao(coluna1)
+FROM nomeTabela
+GROUP BY coluna1
+HAVING condicao ;
+```
+``` sql
+/*Exemplo 01 HAVING*/
+SELECT FirstName, COUNT(Firstname) as "quantidade" /* nomeColuna, funcaoAgregacao, apelido */
+FROM Person.Person /* nomeTabela */
+GROUP BY FirstName /* agrupar por nomeColuna */
+HAVING COUNT(Firstname) > 10 /* filtrar quando o nomeColuna for maior que 10 > */
+```
+``` sql
+/*Exemplo 02 HAVING*/
+/* Quais produtos que no total de vendas, estão entre 162mil a 500mil */
+SELECT PRODUCTID, sum(linetotal) as "Total"
+FROM Sales.SAlesOrderDetail
+GROUP BY ProductId
+HAVING SUM(linetotal) between 162000 and 500000
+```
+``` sql
+/*Exemplo 03 Where + HAVING*/
+/* Quantos nomes no sistema tem ocorrencia maior que 10 vezes, porem somente onde o titulo seja por "Mr." */
+SELECT FirstName, COUNT(Firstname) as "quantidade"
+FROM Person.Person
+WHERE Title = 'Mr.'
+GROUP BY FirstName
+HAVING COUNT(Firstname) > 10
+```
+**ATENÇÃO! A grande diferença entre HAVING e WHERE, o GROUP BY é aplicado depois que os dados já foram agrupados, enquanto o WHERE é aplicado antes dos dados serem agrupados.**
 
+## Desafio HAVING
 
+* Desafio 01 = Estamos querendo identificar as provincias(stateProvinceId) com o maior numero de cadastros no nosso sistema, então é preciso encontrar quais provincias (stateProvinceId) estão registradas no banco de dados mais que 1000 vezes.
+* Desafio 02 = Os gerentes de uma multinacional, querem saber quais produtos (productId) não
+estão trazendo, em média, no mínimo 1 milhão em total de vendas (lineTotal).
 
+**Soluções Desafios**
 
-
-
-
-
+``` sql
+/*DESAFIO 01*/
+SELECT StateProvinceID, COUNT(StateProvinceID) as Quantidade
+FROM Person.Address
+GROUP BY StateProvinceID
+HAVING COUNT(StateProvinceId) > 1000
+```
+``` sql
+/*DESAFIO 02*/
+SELECT ProductId, AVG(LineTotal) as "MEDIA"
+From Sales.SalesOrderDetail
+GROUP BY ProductID
+HAVING AVG(LineTotal) < 1000000
+```
